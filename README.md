@@ -1,1 +1,1 @@
-# fikiwiki
+# fiki.fun
