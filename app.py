@@ -12,12 +12,11 @@ def index():
         SELECT
         name
         FROM sqlite_master
-        WHERE type='table'
+        WHERE type = 'table'
         ORDER BY random()
     ''')
     cats = r.fetchall()
     categories = [c[0] for c in cats]
-    # TODO: make this dynamic again
     return render_template('index.html', categories=categories)
 
 @app.route('/c/<category>')
