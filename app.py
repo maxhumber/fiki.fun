@@ -1,11 +1,23 @@
-import pandas as pd
+import sqlite3
 import flask
-import json
-import random
+from flask import render_template, url_for
 
 app = flask.Flask(__name__)
-df = pd.read_csv('data/acronyms.csv')
-dates = list(json.load(open('data/dates.json', 'r')).items())
+con = sqlite3.connect('data/categories.db', check_same_thread=False)
+c = con.cursor()
+
+@app.route('/')
+def index():
+    r = c.execute('''
+        SELECT
+        name
+        FROM sqlite_master
+        WHERE type='table'
+        ORDER BY random()
+    ''')
+    cats = r.fetchall()
+    categories = [c[0] for c in cats]
+    return render_template('index.html', categories=categories)
 
 # /c/inventors
 # /c/acronyms
@@ -15,18 +27,17 @@ dates = list(json.load(open('data/dates.json', 'r')).items())
 # /c/mottos
 
 @app.route('/c/<category>')
-
-
-
-@app.route('/')
-def get_random():
-    a, d = df.sample().values.tolist()[0]
-    return f'<h1>{a}</h1><br><h3>{d}</h3>'
-
-@app.route('/date')
-def get_random_date():
-    d, e = random.choice(dates)
-    return f'<h1>{d}</h1><br><h3>{e}</h3>'
+def fetch_prompt(category):
+    # TODO: fix sql injection lol
+    c.execute(f'''
+        SELECT
+        prompt,
+        answer
+        FROM {category}
+        ORDER BY RANDOM()
+        LIMIT 1''')
+    prompt, answer = c.fetchone()
+    return render_template('prompt.html', prompt=prompt, answer=answer)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
