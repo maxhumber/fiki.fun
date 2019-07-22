@@ -5,10 +5,15 @@
     <title>fiki.fun</title>
   </head>
   <body>
+    <h1>
+      <a href="/">fiki.fun</a>
+    </h1>
     <ul>
-      {% for cat in categories %}
-      <li>{{ cat }}</li>
-      {% endfor %}
+      <li><a href={{ url_for('fetch_prompt', category='mottos') }}>mottos</a></li>
+      <li><a href={{ url_for('fetch_prompt', category='inventors') }}>inventors</a></li>
+      <li><a href={{ url_for('fetch_prompt', category='canadians') }}>canadians</a></li>
+      <li><a href={{ url_for('fetch_prompt', category='acronyms') }}>acronyms</a></li>
+      <li><a href={{ url_for('fetch_prompt', category='dates') }}>dates</a></li>
     </ul>
   </body>
 </html>

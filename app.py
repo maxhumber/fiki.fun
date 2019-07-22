@@ -17,14 +17,8 @@ def index():
     ''')
     cats = r.fetchall()
     categories = [c[0] for c in cats]
+    # TODO: make this dynamic again
     return render_template('index.html', categories=categories)
-
-# /c/inventors
-# /c/acronyms
-# /c/dates
-# /c/canadians
-# /c/phobias
-# /c/mottos
 
 @app.route('/c/<category>')
 def fetch_prompt(category):
