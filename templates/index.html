@@ -2,7 +2,7 @@
 {% block content %}
 <ul>
   {% for cat in categories %}
-    <li><a href={{ url_for('fetch_prompt', category=cat) }}>{{ cat }}</a></li>
+  <li><a class='roboto' href={{ url_for('fetch_prompt', category=cat) }}>{{ cat }}</a></li>
   {% endfor %}
 </ul>
 {% endblock %}

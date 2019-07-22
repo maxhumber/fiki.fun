@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% block head %}
-    <title>fiki.wiki</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <title>fiki.fun</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
-      body {background-color: #ffd300;}
-      #logo {
-        font-family: 'Merriweather', serif;
-        text-decoration: none;
-        font-size: xx-large;
+      body { background-color: #FFEB3B; }
+      ul { list-style: square; }
+      /* ul li:before { content: "> "; } */
+      .container { display: flex; }
+      .roboto {
+        font-family: 'Roboto', sans-serif;
+        font-size: large;
+        color: #000000;
       }
-      a {color: #000000;}
+      #logo {
+        font-size: xx-large;
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        display: flex;
+        padding: 5px;
+        background-color: #000000;
+        color: #FFEB3B;
+      }
     </style>
-    {% endblock %}
   </head>
   <body>
-    <div id='logo'>
-      <a href="/", style="text-decoration:none;">fiki.fun</a>
+    <div class="container">
+      <a id='logo' href="/">fiki.fun</a>
     </div>
     <div id="content">{% block content %}{% endblock %}</div>
   </body>

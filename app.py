@@ -1,27 +1,22 @@
 import sqlite3
 import flask
-from flask import render_template, url_for
+from flask import render_template, url_for, abort
 
 app = flask.Flask(__name__)
 con = sqlite3.connect('data/categories.db', check_same_thread=False)
 c = con.cursor()
 
+tables = c.execute("SELECT name FROM sqlite_master WHERE type='table'")
+tables = [table[0] for table in tables.fetchall()]
+
 @app.route('/')
 def index():
-    r = c.execute('''
-        SELECT
-        name
-        FROM sqlite_master
-        WHERE type = 'table'
-        ORDER BY random()
-    ''')
-    cats = r.fetchall()
-    categories = [c[0] for c in cats]
-    return render_template('index.html', categories=categories)
+    return render_template('index.html', categories=tables)
 
 @app.route('/c/<category>')
 def fetch_prompt(category):
-    # TODO: fix sql injection lol
+    if category.lower() not in tables:
+        abort(400)
     c.execute(f'''
         SELECT
         prompt,
