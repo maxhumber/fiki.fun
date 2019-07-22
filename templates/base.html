@@ -3,13 +3,24 @@
   <head>
     {% block head %}
     <title>fiki.wiki</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <style>
+      body {background-color: #ffd300;}
+      #logo {
+        font-family: 'Merriweather', serif;
+        text-decoration: none;
+        font-size: xx-large;
+      }
+      a {color: #000000;}
+    </style>
     {% endblock %}
   </head>
   <body>
-    <h1><a href="/">fiki.fun</a></h1>
+    <div id='logo'>
+      <a href="/", style="text-decoration:none;">fiki.fun</a>
+    </div>
     <div id="content">{% block content %}{% endblock %}</div>
   </body>
   <footer>
-    <p>2019 © Max Humber</p>
   </footer>
 </html>
