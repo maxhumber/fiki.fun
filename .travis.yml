@@ -1,4 +1,9 @@
+language: python
+python:
+  - 3.6
 deploy:
   provider: heroku
   api_key: $HEROKU_KEY
   app: fikifun
+script:
+  - ls
