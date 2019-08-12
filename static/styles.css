@@ -1,0 +1,22 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body { background-color: #FFEB3B; }
+.jumbotron {
+  background-color:transparent !important;
+}
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+  color: #000000;
+}
+.logo-container { display: flex; }
+#logo {
+  font-size: xx-large;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  display: flex;
+  padding: 5px;
+  background-color: #000000;
+  color: #FFEB3B;
+}

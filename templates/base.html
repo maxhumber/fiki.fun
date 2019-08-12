@@ -2,34 +2,21 @@
 <html lang="en">
   <head>
     <title>fiki.fun</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <style>
-      body { background-color: #FFEB3B; }
-      ul { list-style: square; }
-      /* ul li:before { content: "> "; } */
-      .container { display: flex; }
-      .roboto {
-        font-family: 'Roboto', sans-serif;
-        font-size: large;
-        color: #000000;
-      }
-      #logo {
-        font-size: xx-large;
-        font-family: 'Roboto', sans-serif;
-        text-decoration: none;
-        display: flex;
-        padding: 5px;
-        background-color: #000000;
-        color: #FFEB3B;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <div class="container">
-      <a id='logo' href="/">fiki.fun</a>
+    <div class="jumbotron d-flex align-items-center">
+      <div class="container">
+        <div class="logo-container">
+          <a id='logo' href="/">fiki.fun</a>
+        </div>
+        <br />
+        <div id="content">{% block content %}{% endblock %}</div>
+      </div>
     </div>
-    <div id="content">{% block content %}{% endblock %}</div>
   </body>
-  <footer>
-  </footer>
 </html>
