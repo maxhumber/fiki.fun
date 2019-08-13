@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="container">
-    <p>{{ prompt }}</p>
-    <p>{{ answer }}</p>
+
+    <div id="accordion">
+     <div class="card">
+       <div class="card-header">
+         <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+           {{ prompt }}
+         </a>
+       </div>
+       <div id="collapseThree" class="collapse" data-parent="#accordion">
+         <div class="card-body">
+           {{ answer }}
+         </div>
+       </div>
+     </div>
+   </div>
+
   </div>
 {% endblock %}

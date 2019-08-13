@@ -1,17 +1,17 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
-body { background-color: #FFEB3B; }
+body {
+  background-color: #FFEB3B;
+}
 .jumbotron {
   background-color:transparent !important;
 }
-.roboto {
-  font-family: 'Roboto', sans-serif;
-  font-size: large;
-  color: #000000;
+.btn-primary {
+    background-color: #000000 !important;
+    color: #FFEB3B !important;
 }
-.logo-container { display: flex; }
-#logo {
+.black {
   font-size: xx-large;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
